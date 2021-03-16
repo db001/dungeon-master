@@ -11,9 +11,25 @@ body {
 	font-size: 16px;
 }
 
+* {
+	font-family: "Montserrat", sans-serif;
+}
+
 body {
 	background-image: url(../../images/backgrounds/dnd-bg.jpg);
 	background-position: center;
 	background-size: cover;
+	font-family: "Montserrat", sans-serif;
 	height: 100vh;
+	color: $ghost-white;
+}
+
+a {
+	color: $ghost-white;
+	font-weight: 700;
+
+	&:visited,
+	&:active {
+		color: $ghost-white;
+	}
 }

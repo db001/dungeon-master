@@ -70,10 +70,10 @@ const Login = ({ setAuth }) => {
 						<Button type="submit">Submit</Button>
 					</div>
 				</form>
-				<p>Not signed up? Click here to</p>
-				<Button type="register">
-					<Link to="/register">register</Link>
-				</Button>
+				<p className="text-white">
+					Not signed up?&nbsp;
+					<Link to="/register">Click here to Register</Link>
+				</p>
 			</div>
 		</Fragment>
 	);

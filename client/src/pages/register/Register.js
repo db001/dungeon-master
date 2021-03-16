@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import Button from "../../components/button/Button";
+
 const Register = ({ setAuth }) => {
 	const [inputs, setInputs] = useState({
 		email: "",
@@ -45,36 +47,41 @@ const Register = ({ setAuth }) => {
 
 	return (
 		<Fragment>
-			<div className="form"></div>
-			<h1>Register</h1>
-			<form onSubmit={onSubmitForm}>
-				<input
-					type="text"
-					name="email"
-					value={email}
-					placeholder="email"
-					onChange={(e) => onChange(e)}
-					className="form-control my-3"
-				/>
-				<input
-					type="password"
-					name="password"
-					value={password}
-					placeholder="password"
-					onChange={(e) => onChange(e)}
-					className="form-control my-3"
-				/>
-				<input
-					type="text"
-					name="name"
-					value={name}
-					placeholder="name"
-					onChange={(e) => onChange(e)}
-					className="form-control my-3"
-				/>
-				<button className="btn btn-success btn-block">Submit</button>
-			</form>
-			<Link to="/login">login</Link>
+			<div className="form">
+				<h1>Register</h1>
+				<form onSubmit={onSubmitForm}>
+					<input
+						type="text"
+						name="email"
+						value={email}
+						placeholder="Email"
+						onChange={(e) => onChange(e)}
+						className="form-control my-3"
+					/>
+					<input
+						type="password"
+						name="password"
+						value={password}
+						placeholder="Password"
+						onChange={(e) => onChange(e)}
+						className="form-control my-3"
+					/>
+					<input
+						type="text"
+						name="name"
+						value={name}
+						placeholder="Name"
+						onChange={(e) => onChange(e)}
+						className="form-control my-3"
+					/>
+					<Button type="submit">Submit</Button>
+				</form>
+
+				<p className="text-white">
+					Already registered?&nbsp;
+					<Link to="/login">Login here</Link> instead
+				</p>
+			</div>
 		</Fragment>
 	);
 };

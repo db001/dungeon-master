@@ -7,8 +7,10 @@
 // Trumps - The most specific styles for overriding anything else in the triangle
 
 @import "settings/fonts";
-@import "settings/variables";
+@import "settings/colors";
 
 @import "elements/elements";
 
 @import "components/forms";
+
+@import "trumps/text";
