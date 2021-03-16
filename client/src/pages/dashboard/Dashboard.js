@@ -3,15 +3,16 @@ import { toast } from "react-toastify";
 
 //components
 
+import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 
-import InputTodo from "./todolist/InputTodo";
+import AddCampaign from "./campaigns/AddCampaign";
 import ListTodos from "./todolist/ListTodos";
 
 const Dashboard = ({ setAuth }) => {
 	const [name, setName] = useState("");
-	const [allTodos, setAllTodos] = useState([]);
-	const [todosChange, setTodosChange] = useState(false);
+	const [allCampaigns, setAllCampaigns] = useState([]);
+	const [todosChange, setCampaignChange] = useState(false);
 
 	const getProfile = async () => {
 		try {
@@ -22,7 +23,7 @@ const Dashboard = ({ setAuth }) => {
 
 			const parseData = await res.json();
 
-			setAllTodos(parseData);
+			setAllCampaigns(parseData);
 
 			setName(parseData[0].user_name); // name is the first array item
 		} catch (err) {
@@ -43,20 +44,15 @@ const Dashboard = ({ setAuth }) => {
 
 	useEffect(() => {
 		getProfile();
-		setTodosChange(false);
+		setCampaignChange(false);
 	}, [todosChange]);
 
 	return (
 		<div>
-			<div className="d-flex mt-5 justify-content-around">
-				<h2>{name} 's DM Dashboard</h2>
-				<span onClick={(e) => logout(e)}>
-					<Button type="logout">Logout</Button>
-				</span>
-			</div>
-			{/* 
-			<InputTodo setTodosChange={setTodosChange} />
-			<ListTodos allTodos={allTodos} setTodosChange={setTodosChange} /> */}
+			<Header name={name} onLogoutClick={(e) => logout(e)} />
+
+			<AddCampaign setCampaignChange={setCampaignChange} />
+			{/* <ListTodos allCampaigns={allCampaigns} setCampaignChange={setCampaignChange} /> */}
 		</div>
 	);
 };

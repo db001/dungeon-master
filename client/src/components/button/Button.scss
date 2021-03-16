@@ -9,7 +9,8 @@
 	padding: 1rem 1.5rem;
 	width: 100%;
 
-	&-submit {
+	&-submit,
+	&-add {
 		background-color: $medium-carmine;
 
 		&:hover {
@@ -34,5 +35,9 @@
 		background-color: $cadet-blue;
 		color: $gunmetal;
 		width: auto;
+
+		&:hover {
+			background-color: darken($cadet-blue, 10%);
+		}
 	}
 }
