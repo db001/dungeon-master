@@ -4,7 +4,6 @@ import "./Header.scss";
 import Button from "../button/Button";
 
 const Header = (props) => {
-	console.log(props);
 	return (
 		<div className="header">
 			<h2>{props.name}'s DM Dashboard</h2>

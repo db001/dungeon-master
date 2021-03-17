@@ -15,7 +15,7 @@ const AddCampaign = ({ setCampaignChange }) => {
 
 			const body = { description };
 			const response = await fetch(
-				"http://localhost:5000/dashboard/todos",
+				"http://localhost:5000/dashboard/campaigns",
 				{
 					method: "POST",
 					headers: myHeaders,

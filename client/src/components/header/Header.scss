@@ -1,0 +1,9 @@
+@import "../../assets/styles/settings/colors";
+
+.header {
+	align-items: center;
+	border-bottom: 1px solid $ghost-white;
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem;
+}

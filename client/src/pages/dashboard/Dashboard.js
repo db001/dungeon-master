@@ -7,12 +7,12 @@ import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 
 import AddCampaign from "./campaigns/AddCampaign";
-import ListTodos from "./todolist/ListTodos";
+import ListCampaigns from "./campaigns/ListCampaigns";
 
 const Dashboard = ({ setAuth }) => {
 	const [name, setName] = useState("");
 	const [allCampaigns, setAllCampaigns] = useState([]);
-	const [todosChange, setCampaignChange] = useState(false);
+	const [campaignChange, setCampaignChange] = useState(false);
 
 	const getProfile = async () => {
 		try {
@@ -25,7 +25,7 @@ const Dashboard = ({ setAuth }) => {
 
 			setAllCampaigns(parseData);
 
-			setName(parseData[0].user_name); // name is the first array item
+			setName(parseData[0].dm_name); // name is the first array item
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -45,14 +45,17 @@ const Dashboard = ({ setAuth }) => {
 	useEffect(() => {
 		getProfile();
 		setCampaignChange(false);
-	}, [todosChange]);
+	}, [campaignChange]);
 
 	return (
 		<div>
 			<Header name={name} onLogoutClick={(e) => logout(e)} />
 
 			<AddCampaign setCampaignChange={setCampaignChange} />
-			{/* <ListTodos allCampaigns={allCampaigns} setCampaignChange={setCampaignChange} /> */}
+			<ListCampaigns
+				allCampaigns={allCampaigns}
+				setCampaignChange={setCampaignChange}
+			/>
 		</div>
 	);
 };
