@@ -16,11 +16,3 @@ CREATE TABLE campaigns(
   PRIMARY KEY (campaign_id),
   FOREIGN KEY (dm_id) REFERENCES dungeon_master(dm_id)
 );
-
---fake users data
-
--- insert into users (user_name, user_email, user_password) values ('bob', 'bob@bob.com', '1234');
-
---fake todos data
-
--- insert into todos (user_id, description) values ('60dc16dd-c7f1-4fde-827a-90c0e101555c', 'clean room');
