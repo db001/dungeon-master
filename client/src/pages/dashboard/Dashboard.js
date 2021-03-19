@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-//components
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+	Link,
+} from "react-router-dom";
 
 import Header from "../../components/header/Header";
-import Button from "../../components/button/Button";
 
-import AddCampaign from "./campaigns/AddCampaign";
-import ListCampaigns from "./campaigns/ListCampaigns";
+import Campaigns from "./campaigns/Campaigns";
 
 const Dashboard = ({ setAuth }) => {
 	const [name, setName] = useState("");
-	const [allCampaigns, setAllCampaigns] = useState([]);
-	const [campaignChange, setCampaignChange] = useState(false);
 
 	const getProfile = async () => {
 		try {
@@ -22,8 +24,6 @@ const Dashboard = ({ setAuth }) => {
 			});
 
 			const parseData = await res.json();
-
-			setAllCampaigns(parseData);
 
 			setName(parseData[0].dm_name); // name is the first array item
 		} catch (err) {
@@ -44,19 +44,22 @@ const Dashboard = ({ setAuth }) => {
 
 	useEffect(() => {
 		getProfile();
-		setCampaignChange(false);
-	}, [campaignChange]);
+	}, []);
 
 	return (
-		<div>
+		<Fragment>
 			<Header name={name} onLogoutClick={(e) => logout(e)} />
 
-			<AddCampaign setCampaignChange={setCampaignChange} />
-			<ListCampaigns
-				allCampaigns={allCampaigns}
-				setCampaignChange={setCampaignChange}
-			/>
-		</div>
+			<div className="content-container">
+				<Link to="/dashboard/campaigns">Campaigns</Link>
+			</div>
+
+			<Router>
+				<Switch>
+					<Route path="/dashboard/campaigns" component={Campaigns} />
+				</Switch>
+			</Router>
+		</Fragment>
 	);
 };
 
