@@ -2,7 +2,7 @@
 
 A PERN fullstack web app to help dungeon masters organise their D&D campaign
 
-## :page_facing_up: Table of contents
+## Table of contents
 
 -   [Requirements](#requirements)
 -   [Backend Setup](#backend-setup)
