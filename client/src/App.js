@@ -17,6 +17,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 // import Landing from "./pages/landing/Landing";
 
 import "./App.scss";
+import Header from "./components/header/Header";
 
 toast.configure();
 
@@ -54,6 +55,7 @@ function App() {
 	return (
 		<Fragment>
 			<Router>
+				{isAuthenticated ? <Header setAuth={setAuth} /> : <div></div>}
 				<Switch>
 					<Route
 						exact

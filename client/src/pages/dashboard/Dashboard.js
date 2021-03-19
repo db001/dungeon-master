@@ -1,62 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import React, { Fragment } from "react";
 
-//components
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 
-import Header from "../../components/header/Header";
-import Button from "../../components/button/Button";
+import "./Dashboard.scss";
 
-import AddCampaign from "./campaigns/AddCampaign";
-import ListCampaigns from "./campaigns/ListCampaigns";
+// Components
+import Campaigns from "./campaigns/Campaigns";
+import Players from "./players/Players";
+import Npcs from "./npcs/Npcs";
 
-const Dashboard = ({ setAuth }) => {
-	const [name, setName] = useState("");
-	const [allCampaigns, setAllCampaigns] = useState([]);
-	const [campaignChange, setCampaignChange] = useState(false);
-
-	const getProfile = async () => {
-		try {
-			const res = await fetch("http://localhost:5000/dashboard/", {
-				method: "GET",
-				headers: { jwt_token: localStorage.token },
-			});
-
-			const parseData = await res.json();
-
-			setAllCampaigns(parseData);
-
-			setName(parseData[0].dm_name); // name is the first array item
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
-
-	const logout = async (e) => {
-		e.preventDefault();
-		try {
-			localStorage.removeItem("token");
-			setAuth(false);
-			toast.success("Successfully logged out");
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
-
-	useEffect(() => {
-		getProfile();
-		setCampaignChange(false);
-	}, [campaignChange]);
-
+const Dashboard = () => {
 	return (
-		<div>
-			<Header name={name} onLogoutClick={(e) => logout(e)} />
-
-			<AddCampaign setCampaignChange={setCampaignChange} />
-			<ListCampaigns
-				allCampaigns={allCampaigns}
-				setCampaignChange={setCampaignChange}
-			/>
-		</div>
+		<Fragment>
+			<div className="content-width">
+				<Switch>
+					<Route path="/dashboard/campaigns" component={Campaigns} />
+					<Route path="/dashboard/players" component={Players} />
+					<Route path="/dashboard/npcs" component={Npcs} />
+				</Switch>
+			</div>
+		</Fragment>
 	);
 };
 
