@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
 
-import AddCampaign from "./AddCampaign";
-import ListCampaigns from "./ListCampaigns";
+// import AddCampaign from "./AddCampaign";
+// import ListCampaigns from "./ListCampaigns";
 
 const Campaigns = () => {
 	return (
 		<Fragment>
 			<div>Campaigns</div>
 
-			<AddCampaign />
-			<ListCampaigns />
+			{/* <AddCampaign />
+			<ListCampaigns /> */}
 		</Fragment>
 	);
 };

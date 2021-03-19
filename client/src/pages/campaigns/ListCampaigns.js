@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import EditCampaign from "../campaigns/EditCampaign";
+import EditCampaign from "./EditCampaign";
 
 const ListCampaigns = ({ allCampaigns, setCampaignsChange }) => {
 	const [campaigns, setCampaign] = useState([]); // useState to set campaigns

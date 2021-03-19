@@ -7,7 +7,7 @@ router.get("/", authorize, async (req, res) => {
 	try {
 		// get campaign name and for a specified user id
 		const user = await pool.query(
-			"SELECT u.dm_name, t.campaign_name, t.campaign_id FROM dungeon_master AS u LEFT JOIN campaigns AS t ON u.dm_id = t.dm_id WHERE u.dm_id = $1",
+			"SELECT u.dm_name, u.dm_id, t.campaign_name, t.campaign_id FROM dungeon_master AS u LEFT JOIN campaigns AS t ON u.dm_id = t.dm_id WHERE u.dm_id = $1",
 			[req.user.id]
 		);
 

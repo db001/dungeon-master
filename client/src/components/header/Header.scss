@@ -6,4 +6,10 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 2rem;
+
+	.links-wrapper {
+		a {
+			margin: 0 0.5rem;
+		}
+	}
 }
