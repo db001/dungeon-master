@@ -27,7 +27,10 @@ const Dashboard = ({ setAuth }) => {
 
 	return (
 		<Fragment>
-			<h2>Welcome to your DM dashboard, use the links in the header to naivgate</h2>
+			<h2>
+				Welcome to your DM dashboard, use the links in the header to
+				navigate
+			</h2>
 		</Fragment>
 	);
 };

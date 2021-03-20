@@ -8,7 +8,6 @@ import { Link, Redirect } from "react-router-dom";
 
 const Header = ({ setAuth, isAuth, name }) => {
 	const logout = async (e) => {
-		console.log("logout");
 		e.preventDefault();
 		try {
 			localStorage.removeItem("token");
