@@ -25,9 +25,10 @@ const AddCampaign = ({ setCampaignChange }) => {
 
 			const parseResponse = await response.json();
 
+			console.log("ParseResponse");
 			console.log(parseResponse);
 
-			setCampaignChange(true);
+			// setCampaignChange(true);
 			setDescription("");
 			// window.location = "/";
 		} catch (err) {

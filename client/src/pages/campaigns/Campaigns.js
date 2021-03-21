@@ -18,10 +18,7 @@ const Campaigns = () => {
 
 			const parseData = await res.json();
 
-			// console.log(parseData);
-
 			setCampaigns(parseData[0]);
-			// setName(parseData[0].dm_name); // name is the first array item
 		} catch (err) {
 			console.error(`Campaigns Error: ${err.message}`);
 		}
@@ -29,7 +26,6 @@ const Campaigns = () => {
 
 	useEffect(() => {
 		getCampaigns();
-		console.log(campaigns);
 	}, []);
 
 	return (

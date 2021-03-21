@@ -19,8 +19,6 @@ router.get("/", authorize, async (req, res) => {
 });
 
 router.get("/campaigns", authorize, async (req, res) => {
-	console.log(`Request`);
-
 	try {
 		// get campaign name and for a specified user id
 		const user = await pool.query(
@@ -38,11 +36,10 @@ router.get("/campaigns", authorize, async (req, res) => {
 // Create a campaign, using authorize middleware
 router.post("/campaigns", authorize, async (req, res) => {
 	try {
-		console.log(req.body);
-		const { description } = req.body;
+		const { campaignName } = req.body;
 		const newTodo = await pool.query(
 			"INSERT INTO campaigns (dm_id, campaign_name) VALUES ($1, $2) RETURNING *",
-			[req.user.id, description]
+			[req.user.id, campaignName]
 		);
 
 		res.json(newTodo.rows[0]);

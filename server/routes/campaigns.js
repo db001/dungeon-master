@@ -4,8 +4,6 @@ const pool = require("../db");
 
 // All campaigns and name
 router.get("/campaigns", authorize, async (req, res) => {
-	console.log(req.user);
-
 	try {
 		// get campaign name and for a specified user id
 		const user = await pool.query(

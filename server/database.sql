@@ -11,7 +11,7 @@ CREATE TABLE dungeon_master(
 
 CREATE TABLE campaigns(
   campaign_id UUID DEFAULT uuid_generate_v4(),
-  campaign_name VARCHAR(255) NOT NULL,
+  campaign_name VARCHAR(255) NOT NULL UNIQUE,
   dm_id UUID,
   PRIMARY KEY (campaign_id),
   FOREIGN KEY (dm_id) REFERENCES dungeon_master(dm_id)

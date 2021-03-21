@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 // import { toast } from "react-toastify";
 
 import "./Dashboard.scss";
-
 const Dashboard = ({ setAuth }) => {
 	// const [name, setName] = useState("");
 
