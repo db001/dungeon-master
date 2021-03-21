@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import Button from "../../../components/button/Button";
+import Button from "../../components/button/Button";
 
 const AddCampaign = ({ setCampaignChange }) => {
 	const [description, setDescription] = useState("");

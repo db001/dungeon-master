@@ -58,7 +58,7 @@ function App() {
 
 			const parseData = await res.json();
 
-			console.log(parseData);
+			// console.log(parseData);
 
 			setName(parseData[0].dm_name); // name is the first array item
 		} catch (err) {
