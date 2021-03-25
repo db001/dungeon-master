@@ -3,6 +3,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE dungeon_master(
   dm_id UUID DEFAULT uuid_generate_v4(),
+  google_id VARCHAR(255) NOT NULL UNIQUE,
   dm_name VARCHAR(255) NOT NULL,
   dm_email VARCHAR(255) NOT NULL UNIQUE,
   dm_password VARCHAR(255) NOT NULL,

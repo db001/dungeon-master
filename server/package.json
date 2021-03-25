@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"configure": "sh ./configure_db.sh",
+		"configure": "sh ./database/configure_db.sh",
 		"con-dev": "npm run configure && nodemon server",
 		"server": "nodemon server"
 	},
@@ -19,6 +19,9 @@
 		"express": "^4.17.1",
 		"express-validator": "^6.6.0",
 		"jsonwebtoken": "^8.5.1",
-		"pg": "^8.3.0"
+		"pg": "^8.3.0",
+		"passport": "^0.4.1",
+		"passport-google-oauth20": "^2.0.0",
+		"cookie-session": "^1.4.0"
 	}
 }

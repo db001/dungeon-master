@@ -39,8 +39,8 @@ const Header = ({ setAuth, isAuth, name }) => {
 		return (
 			<div className="header">
 				<h2>DM Dashboard</h2>
-				<Link to="/login">Login</Link>
-				<Link to="/register">Register</Link>
+				<Link to="/auth/google">Login</Link>
+				<Link to="/auth/google">Register</Link>
 			</div>
 		);
 	}

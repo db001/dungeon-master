@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./config.sh
+source ./config/config.sh
 export PGPASSWORD=$PGPASSWORD
 
 echo "Configuring db"
@@ -8,6 +8,6 @@ echo "Configuring db"
 dropdb -U postgres dungeon
 createdb -U postgres dungeon
 
-psql -U postgres dungeon < ./database.sql
+psql -U postgres dungeon < ./database/database.sql
 
 echo "db configured"

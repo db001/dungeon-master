@@ -1,17 +1,31 @@
 const express = require("express");
-const app = express();
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const keys = require("./config/keys");
 const cors = require("cors");
 
-//middleware
+require("./services/passport");
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-//routes
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [keys.cookie.key],
+	})
+);
 
-app.use("/authentication", require("./routes/jwtAuth"));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use("/dashboard", require("./routes/dashboard"));
+require("./routes/authRoutes")(app);
+
+// app.use("/authentication", require("./routes/jwtAuth"));
+
+// app.use("/dashboard", require("./routes/dashboard"));
 // app.use("/campaigns", require("./routes/campaigns"));
 
 app.listen(5000, () => {
