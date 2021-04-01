@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./config/config.sh
+source ./database/config.sh
 export PGPASSWORD=$PGPASSWORD
 
 echo "Configuring db"
